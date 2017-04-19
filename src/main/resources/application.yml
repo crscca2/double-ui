@@ -1,8 +1,15 @@
-server:
-  port: ${ui_secret_port:8081}
+logging:
+  level:
+    org.springframework.security: INFO
 spring:
   session:
     store-type: redis
-logging:
-  level:
-    org.springframework.security: DEBUG
+server:
+  port: ${admin_secret_port:8081}
+eureka:
+    instance:
+        leaseRenewalIntervalInSeconds: 1
+        leaseExpirationDurationInSeconds: 2
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
